@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+<h1>List of posts </h1>
+    <table  class="table table-striped">
+        <thead>
+        <tr>
+            <td>ID</td>
+            <td>Title</td>
+            <td>Action</td>
+
+        </tr>
+
+        </thead>
+        <tbody>
+            {% for post in posts %}
+                <tr>
+                    <td>{{ post.id}}</td>
+                    <td> <a href="{{ path('post.show', {id: post.id}) }})">
+                        {{ post.title}}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{{ path('post.delete', {id:post.id}) }}" class="text-danger">
+                            Delete
+                        </a>
+                    </td>
+                </tr>
+
+            {% endfor %}
+        </tbody>
+
+    </table>
+{% endblock %}
