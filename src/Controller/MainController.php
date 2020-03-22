@@ -29,15 +29,5 @@ class MainController extends AbstractController
             'name' => $name
         ]);
     }
-	/**
-     * @Route("/test", name="test")
-     * @param Request $request
-     * @return Response
-     */
-
-    public function custom(Request $request)
-    {
-=                return $this->render('home/index.html.twig');
-
-    }
+	
 }
